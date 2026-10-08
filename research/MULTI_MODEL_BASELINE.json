@@ -1,0 +1,170 @@
+{
+  "timestamp": "2026-10-08 10:36:20",
+  "total_models_tested": 5,
+  "results": [
+    {
+      "model": "glm-5.3-flash",
+      "reason": "Flash 版本 = 快速，智譜 GLM 系列中文強",
+      "basic": {
+        "status": 200,
+        "elapsed": 1.9077610969543457,
+        "content": "(empty)",
+        "reasoning": "The user is asking me to introduce myself in Traditional Chinese, within 20 characters, as an AI assistant.\n\nLet me think about this. The request is simple: a self-introduction in Traditional Chinese,",
+        "tokens": {
+          "prompt_tokens": 30,
+          "completion_tokens": 80,
+          "total_tokens": 110,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      },
+      "anomaly": {
+        "status": 200,
+        "elapsed": 2.2694895267486572,
+        "content": "(empty)",
+        "reasoning": "The user is asking me to act as an e-commerce audit AI. They've given me:\n- Subtotal: NT$3,580\n- Discount: NT$0\n- Total: NT$3,580\n- Expected: Discount code should deduct NT$500\n\nThey want me to output",
+        "tokens": {
+          "prompt_tokens": 113,
+          "completion_tokens": 150,
+          "total_tokens": 263,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "model": "deepseek-v4.1-flash",
+      "reason": "Flash 版本，程式碼與推理能力強",
+      "basic": {
+        "status": 200,
+        "elapsed": 0.8379473686218262,
+        "content": "(empty)",
+        "reasoning": "We need answer in Traditional Chinese, self-intro within 20 chars. User says: \"請用繁體中文自我介紹，20字以內。我是AI助理。\" They specify \"我是AI助理。\" Maybe they want me to self-introduce, within 20 characters. Need comply.",
+        "tokens": {
+          "prompt_tokens": 47,
+          "completion_tokens": 80,
+          "total_tokens": 127,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      },
+      "anomaly": {
+        "status": 200,
+        "elapsed": 0.8415729999542236,
+        "content": "折扣失效 100",
+        "reasoning": "We need answer Chinese. Need judge anomaly. Given subtotal 3580, discount 0, total 3580, expected discount code should deduct 500. So anomaly type discount failed / 折扣失效. Confidence high 100? Need onl",
+        "tokens": {
+          "prompt_tokens": 113,
+          "completion_tokens": 81,
+          "total_tokens": 194,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      }
+    },
+    {
+      "model": "nemotron-3-nano:30b",
+      "reason": "僅 30B，輕量 = 快速",
+      "basic": {
+        "status": 200,
+        "elapsed": 1.3529231548309326,
+        "content": "(empty)",
+        "reasoning": "The user asks: \"請用繁體中文自我介紹，20字以內。我是AI助理。\" They want a self-introduction in Traditional Chinese, within 20 characters. They also gave \"我是AI助理。\" which is 5 characters? Actually \"我是AI助理。\" is 5 characters",
+        "tokens": {
+          "prompt_tokens": 40,
+          "completion_tokens": 80,
+          "total_tokens": 120
+        },
+        "finish_reason": "length"
+      },
+      "anomaly": {
+        "status": 200,
+        "elapsed": 0.9779417514801025,
+        "content": "折",
+        "reasoning": "We need to output only \"異常類型\" and \"信心分數\". The user says: \"請只輸出：異常類型（如折扣失效）和信心分數（0-100），無需解釋。\" So we must output something like \"折扣失效 100\". The abnormal type is discount ineffective? The scenario: expe",
+        "tokens": {
+          "prompt_tokens": 131,
+          "completion_tokens": 150,
+          "total_tokens": 281
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "model": "kimi-k3",
+      "reason": "與 k2.6 對比，可能無 reasoning",
+      "basic": {
+        "status": 200,
+        "elapsed": 1.9806487560272217,
+        "content": "(empty)",
+        "reasoning": "The user is asking me to introduce myself in Traditional Chinese (繁體中文), within 20 characters. They also mentioned \"我是AI助理\" (I am an AI assistant) - this seems to be them telling me what to say, or pe",
+        "tokens": {
+          "prompt_tokens": 163,
+          "completion_tokens": 80,
+          "total_tokens": 243,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      },
+      "anomaly": {
+        "status": 200,
+        "elapsed": 3.432137966156006,
+        "content": "(empty)",
+        "reasoning": "The user is asking me to act as an e-commerce audit AI. They want me to analyze:\n- Subtotal: NT$3,580\n- Discount: NT$0\n- Total: NT$3,580\n- Expected: Discount code should have applied NT$500 off\n\nThey ",
+        "tokens": {
+          "prompt_tokens": 243,
+          "completion_tokens": 150,
+          "total_tokens": 393,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      }
+    },
+    {
+      "model": "mistral-large-4",
+      "reason": "大型模型，品質基準",
+      "basic": {
+        "status": 200,
+        "elapsed": 29.35057830810547,
+        "content": "(empty)",
+        "reasoning": "用戶要求用繁體中文自我介紹，20字以內，內容是「我是AI助理」。\n\n讓我計算一下字數：\n「我是AI助理」= 我(1)是(2)A(3)I(4)助(5)理(6) = 6個字元（如果算AI為兩",
+        "tokens": {
+          "prompt_tokens": 23,
+          "completion_tokens": 80,
+          "total_tokens": 103,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      },
+      "anomaly": {
+        "status": 200,
+        "elapsed": 3.176056146621704,
+        "content": "(empty)",
+        "reasoning": "用戶要求我扮演電商審計AI，根據提供的資訊判斷異常。需要分析的資訊：\n- 小計: NT$3,580\n- 折扣: NT$0\n- 總額: NT$3,580\n- 預期: 折扣碼應折抵 NT$500\n\n分析：\n1. 小計是 3,580\n2. 折扣顯示為 0\n3. 總額等於小計（3,580），表示沒有應用折扣\n4. 預期應該有 500 元的折扣\n\n這明顯是折扣未正確應用的",
+        "tokens": {
+          "prompt_tokens": 98,
+          "completion_tokens": 150,
+          "total_tokens": 248,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "length"
+      }
+    }
+  ]
+}

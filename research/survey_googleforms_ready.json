@@ -1,0 +1,580 @@
+{
+  "info": {
+    "title": "CartRescue AI 市場調查問卷",
+    "description": "發放對象：SHOPLINE / Shopify / 91APP 台灣店家之電商負責人、營運或行銷主管\n目標數量：50 份有效問卷\n填答完成者將優先獲得「免費結帳健檢」資格！\n如有問題請聯繫：vincent@cartrescue.ai / LINE: @cartrescue",
+    "documentTitle": "CartRescue AI 市場調查問卷"
+  },
+  "settings": {
+    "collectEmail": false,
+    "confirmationMessage": "感謝您撫冗填寫！您的回饋將幫助我們打造更貼近電商需求的產品。我們將於 3 個工作日內以 Email 通知「免費結帳健檢」的安排細節。",
+    "progressBar": true,
+    "showLinkToRespondAgain": false
+  },
+  "items": [
+    {
+      "itemId": "section_a",
+      "title": "A. 篩選與受訪者輪廓",
+      "description": "",
+      "type": "page_break"
+    },
+    {
+      "itemId": "a1_platform",
+      "title": "A1. 貴公司使用的電商平台？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "SHOPLINE"
+        },
+        {
+          "value": "Shopify"
+        },
+        {
+          "value": "91APP"
+        },
+        {
+          "value": "Cyberbiz"
+        },
+        {
+          "value": "WooCommerce"
+        },
+        {
+          "value": "自建站"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "a2_monthly_orders",
+      "title": "A2. 貴站月均訂單量？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "500 單以下"
+        },
+        {
+          "value": "500–2,000 單"
+        },
+        {
+          "value": "2,000–10,000 單"
+        },
+        {
+          "value": "10,000 單以上"
+        }
+      ]
+    },
+    {
+      "itemId": "a3_revenue",
+      "title": "A3. 貴站年營收區間？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "600 萬以下"
+        },
+        {
+          "value": "600 萬–3,000 萬"
+        },
+        {
+          "value": "3,000 萬–1 億"
+        },
+        {
+          "value": "1 億以上"
+        }
+      ]
+    },
+    {
+      "itemId": "a4_engineer",
+      "title": "A4. 團隊內是否有專職工程師負責網站？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "有專職工程師"
+        },
+        {
+          "value": "外包工程師"
+        },
+        {
+          "value": "平台方負責（SHOPLINE/Shopify）"
+        },
+        {
+          "value": "無"
+        }
+      ]
+    },
+    {
+      "itemId": "section_b",
+      "title": "B. 結帳故障痛點驗證",
+      "description": "異常定義：金流斷線、無法下單、頁面錯誤、購物車功能失效等",
+      "type": "page_break"
+    },
+    {
+      "itemId": "b1_checkout_errors",
+      "title": "B1. 過去 12 個月，貴站發生過幾次「結帳流程異常」？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "0 次"
+        },
+        {
+          "value": "1–2 次"
+        },
+        {
+          "value": "3–5 次"
+        },
+        {
+          "value": "6 次以上"
+        },
+        {
+          "value": "不確定",
+          "goto": "b3"
+        }
+      ]
+    },
+    {
+      "itemId": "b2_discovery_time",
+      "title": "B2. 最近一次結帳異常，從發生到被發現經過多久？",
+      "type": "multiple_choice",
+      "required": false,
+      "options": [
+        {
+          "value": "1 小時內"
+        },
+        {
+          "value": "1–6 小時"
+        },
+        {
+          "value": "6–24 小時"
+        },
+        {
+          "value": "超過 1 天"
+        },
+        {
+          "value": "不知道"
+        }
+      ]
+    },
+    {
+      "itemId": "b3_who_found",
+      "title": "B3. 通常是誰先發現結帳異常？（可複選）",
+      "type": "checkbox",
+      "required": false,
+      "options": [
+        {
+          "value": "客服接到客訴"
+        },
+        {
+          "value": "老闆或同事自己下單發現"
+        },
+        {
+          "value": "監控工具自動通知"
+        },
+        {
+          "value": "業績掉了才回查發現"
+        },
+        {
+          "value": "從未發生過異常"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "b4_revenue_loss",
+      "title": "B4. 粗估單次結帳異常造成的營收損失？",
+      "type": "multiple_choice",
+      "required": false,
+      "options": [
+        {
+          "value": "1 萬元以下"
+        },
+        {
+          "value": "1–5 萬元"
+        },
+        {
+          "value": "5–20 萬元"
+        },
+        {
+          "value": "20 萬元以上"
+        },
+        {
+          "value": "無法估計"
+        }
+      ]
+    },
+    {
+      "itemId": "section_c",
+      "title": "C. 優惠券營運痛點驗證",
+      "description": "",
+      "type": "page_break"
+    },
+    {
+      "itemId": "c1_promo_frequency",
+      "title": "C1. 貴站每月執行幾檔促銷活動？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "無固定檔期"
+        },
+        {
+          "value": "1–2 檔"
+        },
+        {
+          "value": "3–5 檔"
+        },
+        {
+          "value": "5 檔以上"
+        }
+      ]
+    },
+    {
+      "itemId": "c2_coupon_count",
+      "title": "C2. 同時流通的折扣碼約幾組？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "10 組以下"
+        },
+        {
+          "value": "10–50 組"
+        },
+        {
+          "value": "50–100 組"
+        },
+        {
+          "value": "100 組以上"
+        }
+      ]
+    },
+    {
+      "itemId": "c3_kol_codes",
+      "title": "C3. 是否操作 KOL / 網紅專屬折扣碼？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "是，超過 50 組"
+        },
+        {
+          "value": "是，10–50 組"
+        },
+        {
+          "value": "是，10 組以下"
+        },
+        {
+          "value": "否",
+          "goto": "c5"
+        }
+      ]
+    },
+    {
+      "itemId": "c4_coupon_errors",
+      "title": "C4. 過去一年是否發生過「折扣碼設定錯誤」事件？（可複選）",
+      "description": "錯誤類型：過期未下架、金額設錯、可疊加、KOL 碼未生效等",
+      "type": "checkbox",
+      "required": false,
+      "options": [
+        {
+          "value": "過期碼未下架"
+        },
+        {
+          "value": "金額/門檻設定錯誤"
+        },
+        {
+          "value": "可疊加設定錯誤"
+        },
+        {
+          "value": "KOL 碼未生效"
+        },
+        {
+          "value": "無發生過錯誤"
+        },
+        {
+          "value": "不知道有沒有",
+          "goto": "c6"
+        }
+      ]
+    },
+    {
+      "itemId": "c4_error_impact",
+      "title": "C4-2. 錯誤後果：（可複選）",
+      "type": "checkbox",
+      "required": false,
+      "options": [
+        {
+          "value": "客訴增加"
+        },
+        {
+          "value": "毛利損失"
+        },
+        {
+          "value": "KOL 合作糾紛"
+        },
+        {
+          "value": "行銷預算浪費"
+        },
+        {
+          "value": "無明顯影響"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "c5_verify_method",
+      "title": "C5. 活動上線前，如何驗證折扣碼正確？",
+      "type": "multiple_choice",
+      "required": false,
+      "options": [
+        {
+          "value": "人工逐一試"
+        },
+        {
+          "value": "抽測部分"
+        },
+        {
+          "value": "不驗證，直接上線"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "c6_auto_verify_help",
+      "title": "C6. 如果有一套系統能「自動驗證所有折扣碼」，對您的工作幫助程度？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "非常有幫助"
+        },
+        {
+          "value": "有幫助"
+        },
+        {
+          "value": "還好"
+        },
+        {
+          "value": "沒什麼幫助"
+        },
+        {
+          "value": "完全不需要"
+        }
+      ]
+    },
+    {
+      "itemId": "section_d",
+      "title": "D. 現有替代方案",
+      "description": "",
+      "type": "page_break"
+    },
+    {
+      "itemId": "d1_monitoring_tools",
+      "title": "D1. 目前是否使用任何網站監控工具？（可複選）",
+      "type": "checkbox",
+      "required": false,
+      "options": [
+        {
+          "value": "Uptime 監測（如 UptimeRobot）"
+        },
+        {
+          "value": "GA 異常警報"
+        },
+        {
+          "value": "Noibu 等專業工具"
+        },
+        {
+          "value": "純人工檢查"
+        },
+        {
+          "value": "無任何監控"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "d2_monthly_spend",
+      "title": "D2. 每月在「網站測試與監控」上的花費（含人力時數換算）約多少？",
+      "type": "multiple_choice",
+      "required": false,
+      "options": [
+        {
+          "value": "5,000 元以下"
+        },
+        {
+          "value": "5,000–10,000 元"
+        },
+        {
+          "value": "10,000–30,000 元"
+        },
+        {
+          "value": "30,000 元以上"
+        },
+        {
+          "value": "無法估計"
+        }
+      ]
+    },
+    {
+      "itemId": "section_e",
+      "title": "E. 付費意願（Van Westendorp 價格敏感度測試）",
+      "description": "情境說明：「假設有一項服務，每天自動模擬真實顧客在您的網站完成整段結帳、驗證所有折扣碼是否正常，發現異常時 10 分鐘內以 LINE 通知您。」",
+      "type": "page_break"
+    },
+    {
+      "itemId": "e1_too_cheap",
+      "title": "E1. 月費多少時，您會覺得「便宜到懷疑品質」？",
+      "type": "text",
+      "required": true,
+      "helpText": "請填寫金額（單位：新台幣/月）"
+    },
+    {
+      "itemId": "e2_good_value",
+      "title": "E2. 月費多少時，您會覺得「划算，會考慮購買」？",
+      "type": "text",
+      "required": true,
+      "helpText": "請填寫金額（單位：新台幣/月）"
+    },
+    {
+      "itemId": "e3_expensive_but",
+      "title": "E3. 月費多少時，您會覺得「有點貴，但仍可能買」？",
+      "type": "text",
+      "required": true,
+      "helpText": "請填寫金額（單位：新台幣/月）"
+    },
+    {
+      "itemId": "e4_too_expensive",
+      "title": "E4. 月費多少時，您會覺得「太貴，絕對不買」？",
+      "type": "text",
+      "required": true,
+      "helpText": "請填寫金額（單位：新台幣/月）"
+    },
+    {
+      "itemId": "e5_pricing_model",
+      "title": "E5. 偏好的計價方式？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "固定月費"
+        },
+        {
+          "value": "依巡檢次數計費"
+        },
+        {
+          "value": "依站點數計費"
+        },
+        {
+          "value": "抓到問題才收費（成效付費）"
+        },
+        {
+          "value": "其他",
+          "isOther": true
+        }
+      ]
+    },
+    {
+      "itemId": "section_f",
+      "title": "F. Beta 合作意願",
+      "description": "包含：每日自動審計、異常警報、完整健檢報告、30 分鐘訪談回饋",
+      "type": "page_break"
+    },
+    {
+      "itemId": "f1_beta_willing",
+      "title": "F1. 是否願意參加 30 天免費「結帳健檢」？",
+      "type": "multiple_choice",
+      "required": true,
+      "options": [
+        {
+          "value": "願意"
+        },
+        {
+          "value": "暫時不需要"
+        }
+      ]
+    },
+    {
+      "itemId": "f2_name",
+      "title": "姓名",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "f2_title",
+      "title": "職稱",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "f2_company",
+      "title": "公司名稱",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "f2_email",
+      "title": "Email",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "f2_phone",
+      "title": "手機",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "f2_contact_time",
+      "title": "方便聯繫時段",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "section_g",
+      "title": "G. 其他建議",
+      "description": "",
+      "type": "page_break"
+    },
+    {
+      "itemId": "g1_feedback",
+      "title": "G1. 對於「自動結帳監控服務」，還有什麼期待或疑慮？",
+      "type": "paragraph_text",
+      "required": false
+    },
+    {
+      "itemId": "g2_referral_name",
+      "title": "推薦人姓名（選填）",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "g2_referral_company",
+      "title": "公司名稱（選填）",
+      "type": "text",
+      "required": false
+    },
+    {
+      "itemId": "g2_referral_contact",
+      "title": "聯絡方式（選填）",
+      "type": "text",
+      "required": false
+    }
+  ]
+}

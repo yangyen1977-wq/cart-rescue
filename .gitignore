@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Reports and logs
+src/reports/
+*.log
+
+# Screenshots (too large)
+src/screenshots/
+research/*.png
+research/captcha_temp.png
+
+# SSH keys
+.ssh/
+
+# Environment
+.env

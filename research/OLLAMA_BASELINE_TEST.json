@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-10-08 10:12:18",
+  "results": [
+    {
+      "test": "basic",
+      "elapsed": 5.885606527328491,
+      "tokens": {
+        "prompt_tokens": 25,
+        "completion_tokens": 100,
+        "total_tokens": 125,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    },
+    {
+      "test": "anomaly",
+      "elapsed": 12.43327784538269,
+      "tokens": {
+        "prompt_tokens": 238,
+        "completion_tokens": 300,
+        "total_tokens": 538,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    },
+    {
+      "test": "code",
+      "elapsed": 5.511227130889893,
+      "tokens": {
+        "prompt_tokens": 86,
+        "completion_tokens": 200,
+        "total_tokens": 286,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      }
+    }
+  ]
+}

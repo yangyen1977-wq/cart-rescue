@@ -1,0 +1,442 @@
+[
+  {
+    "brand_name": "Dazzleslim 黛若詩琳",
+    "url": "https://dazzleslim.shopline.tw",
+    "category": "美妝保養/纖體保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 2500,
+    "contact": "客服信箱：service@dazzleslim.com"
+  },
+  {
+    "brand_name": "DR.WU 達爾膚",
+    "url": "https://www.drwu.com",
+    "category": "美妝保養/醫美保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 8000,
+    "contact": "客服專線：0800-231-100"
+  },
+  {
+    "brand_name": "簡單 JAN DAN",
+    "url": "https://jandan.shopline.tw",
+    "category": "美妝保養/極簡保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 4500,
+    "contact": "LINE 官方帳號：@jandan"
+  },
+  {
+    "brand_name": "AROMASE 艾瑪絲",
+    "url": "https://aromase.com.tw",
+    "category": "美妝保養/頭皮養護",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 3500,
+    "contact": "客服信箱：service@aromase.com.tw"
+  },
+  {
+    "brand_name": "ANNAEVERYDAY",
+    "url": "https://annaeveryday.shopline.tw",
+    "category": "美妝保養/精品保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 1200,
+    "contact": "LINE 官方帳號：@annaeveryday"
+  },
+  {
+    "brand_name": "inyouso",
+    "url": "https://inyouso.shopline.tw",
+    "category": "美妝保養/肌膚保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 800,
+    "contact": "客服信箱：service@inyouso.com"
+  },
+  {
+    "brand_name": "大春煉皂",
+    "url": "https://dachun.shopline.tw",
+    "category": "美妝保養/手工皂",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 900,
+    "contact": "客服專線：02-2558-0168"
+  },
+  {
+    "brand_name": "Papilio",
+    "url": "https://papilio.com.tw",
+    "category": "美妝保養/香氛保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@papilio.com.tw"
+  },
+  {
+    "brand_name": "Neogence 霓淨思",
+    "url": "https://www.neogence.com.tw",
+    "category": "美妝保養/醫美保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 5500,
+    "contact": "客服專線：0800-211-688"
+  },
+  {
+    "brand_name": "Sabon",
+    "url": "https://sabon.com.tw",
+    "category": "美妝保養/身體保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 4000,
+    "contact": "客服信箱：service@sabon.com.tw"
+  },
+  {
+    "brand_name": "Shiseido 資生堂",
+    "url": "https://shiseido.com.tw",
+    "category": "美妝保養/專櫃保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 12000,
+    "contact": "客服專線：0800-231-035"
+  },
+  {
+    "brand_name": "Shu Uemura 植村秀",
+    "url": "https://shuuemura.com.tw",
+    "category": "美妝保養/專櫃彩妝",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 6000,
+    "contact": "客服專線：0800-231-035"
+  },
+  {
+    "brand_name": "JustHerb 香草集",
+    "url": "https://justherb.com.tw",
+    "category": "美妝保養/天然保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 1500,
+    "contact": "客服信箱：service@justherb.com.tw"
+  },
+  {
+    "brand_name": "新肌霓 INGENI",
+    "url": "https://ingeni.shopline.tw",
+    "category": "美妝保養/醫美保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 1800,
+    "contact": "LINE 官方帳號：@ingeni"
+  },
+  {
+    "brand_name": "Rill",
+    "url": "https://rill.com.tw",
+    "category": "美妝保養/天然保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 700,
+    "contact": "客服信箱：service@rill.com.tw"
+  },
+  {
+    "brand_name": "Adoreu 愛朵爾",
+    "url": "https://adoreu.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 650,
+    "contact": "客服信箱：service@adoreu.com.tw"
+  },
+  {
+    "brand_name": "Forever Relove",
+    "url": "https://foreverrelove.com.tw",
+    "category": "美妝保養/私密保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 2200,
+    "contact": "客服信箱：service@foreverrelove.com"
+  },
+  {
+    "brand_name": "U-CARE",
+    "url": "https://u-care.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 800,
+    "contact": "客服專線：0800-039-888"
+  },
+  {
+    "brand_name": "Swisspa",
+    "url": "https://swisspa.com.tw",
+    "category": "美妝保養/SPA保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 1500,
+    "contact": "客服專線：02-2711-0198"
+  },
+  {
+    "brand_name": "Sister Ann",
+    "url": "https://sister-ann.tw",
+    "category": "美妝保養/香氛",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@sister-ann.tw"
+  },
+  {
+    "brand_name": "Baan 貝恩",
+    "url": "https://baan.com.tw",
+    "category": "美妝保養/嬰幼保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 900,
+    "contact": "客服專線：0800-035-678"
+  },
+  {
+    "brand_name": "Helena Rubinstein 赫蓮娜",
+    "url": "https://helenarubinstein.com.tw",
+    "category": "美妝保養/專櫃保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 5000,
+    "contact": "客服專線：0800-231-035"
+  },
+  {
+    "brand_name": "Mombb",
+    "url": "https://mombb.tw",
+    "category": "美妝保養/孕婦保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@mombb.tw"
+  },
+  {
+    "brand_name": "Parnell 帕奈兒",
+    "url": "https://parnell.tw",
+    "category": "美妝保養/韓系保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 800,
+    "contact": "LINE 官方帳號：@parnell"
+  },
+  {
+    "brand_name": "Mehold",
+    "url": "https://mehold.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@mehold.com.tw"
+  },
+  {
+    "brand_name": "Icontin",
+    "url": "https://icontin.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 650,
+    "contact": "客服信箱：service@icontin.tw"
+  },
+  {
+    "brand_name": "Lomoji",
+    "url": "https://lomoji.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@lomoji.com.tw"
+  },
+  {
+    "brand_name": "First Nature",
+    "url": "https://firstnature.com.tw",
+    "category": "美妝保養/天然保養",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 700,
+    "contact": "客服信箱：service@firstnature.com.tw"
+  },
+  {
+    "brand_name": "I-oh",
+    "url": "https://i-oh.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@i-oh.com.tw"
+  },
+  {
+    "brand_name": "Angelatheangel",
+    "url": "https://angelatheangel.com.tw",
+    "category": "美妝保養/保養品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@angelatheangel.com.tw"
+  },
+  {
+    "brand_name": "許許兒 XUXUWEAR",
+    "url": "https://xuxuwear.com.tw",
+    "category": "服飾時尚/女裝設計",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 3500,
+    "contact": "客服信箱：service@xuxuwear.com"
+  },
+  {
+    "brand_name": "VERVE",
+    "url": "https://verve.com.tw",
+    "category": "服飾時尚/機能服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 5000,
+    "contact": "客服專線：02-2707-0585"
+  },
+  {
+    "brand_name": "JERSCY",
+    "url": "https://jerscy.com.tw",
+    "category": "服飾時尚/男裝休閒",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 3000,
+    "contact": "客服信箱：service@jerscy.com"
+  },
+  {
+    "brand_name": "林果良品",
+    "url": "https://linguo.shopline.tw",
+    "category": "服飾時尚/皮革鞋履",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 2500,
+    "contact": "客服專線：02-2395-0588"
+  },
+  {
+    "brand_name": "Hank Max",
+    "url": "https://hankmax.shopline.tw",
+    "category": "服飾時尚/街頭潮流",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 1200,
+    "contact": "LINE 官方帳號：@hankmax"
+  },
+  {
+    "brand_name": "Desire Shop",
+    "url": "https://desireshop.shopline.tw",
+    "category": "服飾時尚/時尚選品",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 800,
+    "contact": "客服信箱：service@desireshop.tw"
+  },
+  {
+    "brand_name": "Vacanza",
+    "url": "https://vacanza.com.tw",
+    "category": "服飾時尚/流行配件",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 2000,
+    "contact": "客服專線：02-2740-0718"
+  },
+  {
+    "brand_name": "Canna 美人蕉",
+    "url": "https://canna.shopline.tw",
+    "category": "服飾時尚/女裝",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 900,
+    "contact": "客服信箱：service@canna.tw"
+  },
+  {
+    "brand_name": "Abito",
+    "url": "https://abito.com.tw",
+    "category": "服飾時尚/女裝",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 700,
+    "contact": "客服信箱：service@abito.com.tw"
+  },
+  {
+    "brand_name": "Aso",
+    "url": "https://aso.com.tw",
+    "category": "服飾時尚/鞋履",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 800,
+    "contact": "客服專線：0800-035-666"
+  },
+  {
+    "brand_name": "Kaishii",
+    "url": "https://kaishii.com.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@kaishii.com.tw"
+  },
+  {
+    "brand_name": "Kollos",
+    "url": "https://kollos.com.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@kollos.com.tw"
+  },
+  {
+    "brand_name": "Mijily",
+    "url": "https://mijily.com.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@mijily.com.tw"
+  },
+  {
+    "brand_name": "Ombra",
+    "url": "https://ombra.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@ombra.tw"
+  },
+  {
+    "brand_name": "Satur",
+    "url": "https://satur.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "SHOPLINE",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@satur.tw"
+  },
+  {
+    "brand_name": "Jmoon",
+    "url": "https://jmoon.tw",
+    "category": "美妝保養/韓系保養",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 800,
+    "contact": "客服信箱：hello@jmoon.tw"
+  },
+  {
+    "brand_name": "Cubed Skincare",
+    "url": "https://cubedskincare.com.tw",
+    "category": "美妝保養/敏弱肌保養",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 1200,
+    "contact": "LINE 官方帳號：@cubed"
+  },
+  {
+    "brand_name": "Innisfree",
+    "url": "https://innisfree.com.tw",
+    "category": "美妝保養/天然保養",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 3500,
+    "contact": "客服專線：0800-231-035"
+  },
+  {
+    "brand_name": "Shiro",
+    "url": "https://shiro-shiro.tw",
+    "category": "美妝保養/日系保養",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 900,
+    "contact": "客服信箱：service@shiro-shiro.tw"
+  },
+  {
+    "brand_name": "CurrentBody",
+    "url": "https://currentbody.tw",
+    "category": "美妝保養/美容儀器",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 2500,
+    "contact": "客服信箱：service@currentbody.tw"
+  },
+  {
+    "brand_name": "Aroak",
+    "url": "https://aroak.com.tw",
+    "category": "服飾時尚/服飾",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 600,
+    "contact": "客服信箱：service@aroak.com.tw"
+  },
+  {
+    "brand_name": "Marcella",
+    "url": "https://marcella.com.tw",
+    "category": "服飾時尚/女裝",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 700,
+    "contact": "客服信箱：service@marcella.com.tw"
+  },
+  {
+    "brand_name": "LeSportsac",
+    "url": "https://lesportsac.tw",
+    "category": "服飾時尚/包袋配件",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 1500,
+    "contact": "客服專線：02-2711-5500"
+  },
+  {
+    "brand_name": "Steve Madden",
+    "url": "https://stevemadden.com.tw",
+    "category": "服飾時尚/鞋履",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 2000,
+    "contact": "客服信箱：service@stevemadden.com.tw"
+  },
+  {
+    "brand_name": "Invincible",
+    "url": "https://invincible.com.tw",
+    "category": "服飾時尚/潮流選品",
+    "platform": "Shopify",
+    "est_revenue_ntd_million": 2500,
+    "contact": "客服專線：02-8773-0898"
+  }
+]
