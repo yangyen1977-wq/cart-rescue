@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CartRescue AI 商業模式與經濟部網路銷售額精確數據互動報告</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-btn.active {
+            border-bottom-color: #2563eb;
+            color: #2563eb;
+            background-color: #eff6ff;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 font-sans text-slate-800 antialiased min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 mb-2 sm:mb-0">
+                <i class="fa-solid fa-cart-shopping text-blue-400 text-2xl"></i>
+                <div>
+                    <h1 class="text-xl font-bold tracking-wide">CartRescue AI 商業企劃與經濟部零售業網路銷售統計報告</h1>
+                    <p class="text-xs text-slate-400">daoyi @ Vincent Infrastructure Team | 整合 106–114 年官方精確數據</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="bg-emerald-600 text-white text-xs px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-check-circle mr-1"></i> 精確數據校正完成</span>
+                <span class="bg-blue-600 text-white text-xs px-2.5 py-1 rounded-full font-medium"><i class="fa-solid fa-robot mr-1"></i> Stagehand + n8n</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- Executive Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">114年零售業網路銷售額</p>
+                        <h3 class="text-2xl font-black text-blue-600 mt-1">NT$ 6,715.8 億</h3>
+                    </div>
+                    <div class="p-2.5 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-chart-line text-lg"></i></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-2">671,582,789 千元 (經濟部精確數)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">106–114年總成長率</p>
+                        <h3 class="text-2xl font-black text-emerald-600 mt-1">+194.2%</h3>
+                    </div>
+                    <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg"><i class="fa-solid fa-arrow-trend-up text-lg"></i></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-2">從 2,282.9 億成長近 3 倍</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">平均結帳棄單率</p>
+                        <h3 class="text-2xl font-black text-slate-900 mt-1">70.22%</h3>
+                    </div>
+                    <div class="p-2.5 bg-amber-50 text-amber-600 rounded-lg"><i class="fa-solid fa-basket-shopping text-lg"></i></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-2">行動端達 80.02% (Baymard 2026)</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">折扣碼失敗率</p>
+                        <h3 class="text-2xl font-black text-rose-600 mt-1">26.2%</h3>
+                    </div>
+                    <div class="p-2.5 bg-rose-50 text-rose-600 rounded-lg"><i class="fa-solid fa-ticket text-lg"></i></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-2">失效時 24% 直接棄購 (SimplyCodes)</p>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-6 overflow-x-auto">
+            <nav class="flex border-b border-slate-200 text-sm font-medium min-w-max" id="tabNav">
+                <button onclick="switchTab('tab-moea')" class="tab-btn active px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-landmark"></i> 經濟部網路銷售額 (106–114 校正)
+                </button>
+                <button onclick="switchTab('tab-market')" class="tab-btn px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie"></i> 全球痛點與數據量化
+                </button>
+                <button onclick="switchTab('tab-competitor')" class="tab-btn px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-chess"></i> 競品差異化定位
+                </button>
+                <button onclick="switchTab('tab-pricing')" class="tab-btn px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-calculator"></i> 商業模式與 ROI 試算
+                </button>
+                <button onclick="switchTab('tab-gtm')" class="tab-btn px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-bullseye"></i> GTM 策略與驗證問卷
+                </button>
+                <button onclick="switchTab('tab-tech')" class="tab-btn px-6 py-4 border-b-2 border-transparent hover:text-blue-600 transition flex items-center gap-2">
+                    <i class="fa-solid fa-microchip"></i> 生產化架構與風險
+                </button>
+            </nav>
+        </div>
+
+        <!-- TAB CONTENT 0: MOEA E-COMMERCE SALES (106-114 EXACT DATA) -->
+        <div id="tab-moea" class="tab-content space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- MOEA E-Commerce Trend Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-blue-600"></i> 106–114 年台灣零售業網路銷售額趨勢 (億 NT$)
+                    </h3>
+                    <div class="h-72">
+                        <canvas id="moeaTrendChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4 bg-slate-50 p-3 rounded">
+                        <strong>精確數據觀察：</strong>108–110 年受疫情與零接觸經濟驅動，銷售額出現爆發性倍增（108 年 +33.3%、109 年 +30.9%、110 年 +26.5%）；111–114 年基期墊高後步入穩定高點增長（每年突破 6,000–6,700 億大關）。
+                    </p>
+                </div>
+
+                <!-- MOEA YoY Growth Rate Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-column text-emerald-600"></i> 各年份網路銷售額年增率 (YoY %)
+                    </h3>
+                    <div class="h-72">
+                        <canvas id="moeaYoyChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4 bg-slate-50 p-3 rounded">
+                        <strong>動能分析：</strong>儘管近年年增率放緩至 2.6%~2.8%，但基數龐大，每年網路銷售仍有近 170~180 億元的絕對金額淨增長，結帳穩定度成為電商營運基本功。
+                    </p>
+                </div>
+            </div>
+
+            <!-- MOEA Data Table Breakdown -->
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+                    <h3 class="text-sm font-bold text-slate-800"><i class="fa-solid fa-table mr-2 text-blue-600"></i>經濟部零售業網路銷售額明細對照表（106–114 年）</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-700">
+                        <thead class="bg-slate-100 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-3">年份</th>
+                                <th class="p-3">銷售額 (千元)</th>
+                                <th class="p-3">折合金額 (億元)</th>
+                                <th class="p-3">年增率 (YoY)</th>
+                                <th class="p-3">相對 106 年累積成長</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">106 年</td>
+                                <td class="p-3 font-mono">228,289,243</td>
+                                <td class="p-3">2,282.89 億</td>
+                                <td class="p-3 text-slate-400">—</td>
+                                <td class="p-3 text-slate-400">基期 (100.0%)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">107 年</td>
+                                <td class="p-3 font-mono">251,713,901</td>
+                                <td class="p-3">2,517.14 億</td>
+                                <td class="p-3 text-emerald-600 font-bold">+10.26%</td>
+                                <td class="p-3">+10.26%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">108 年</td>
+                                <td class="p-3 font-mono">335,565,569</td>
+                                <td class="p-3">3,355.66 億</td>
+                                <td class="p-3 text-emerald-600 font-bold">+33.31%</td>
+                                <td class="p-3">+46.99%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">109 年</td>
+                                <td class="p-3 font-mono">439,283,893</td>
+                                <td class="p-3">4,392.84 億</td>
+                                <td class="p-3 text-emerald-600 font-bold">+30.91%</td>
+                                <td class="p-3">+92.42%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">110 年</td>
+                                <td class="p-3 font-mono">555,705,155</td>
+                                <td class="p-3">5,557.05 億</td>
+                                <td class="p-3 text-emerald-600 font-bold">+26.50%</td>
+                                <td class="p-3">+143.42%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">111 年</td>
+                                <td class="p-3 font-mono">620,254,760</td>
+                                <td class="p-3">6,202.55 億</td>
+                                <td class="p-3 text-emerald-600 font-bold">+11.62%</td>
+                                <td class="p-3">+171.70%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">112 年</td>
+                                <td class="p-3 font-mono">636,443,059</td>
+                                <td class="p-3">6,364.43 億</td>
+                                <td class="p-3 text-blue-600 font-bold">+2.61%</td>
+                                <td class="p-3">+178.79%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold">113 年</td>
+                                <td class="p-3 font-mono">653,329,845</td>
+                                <td class="p-3">6,533.30 億</td>
+                                <td class="p-3 text-blue-600 font-bold">+2.65%</td>
+                                <td class="p-3">+186.19%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 bg-blue-50/40">
+                                <td class="p-3 font-bold text-blue-900">114 年</td>
+                                <td class="p-3 font-mono font-bold text-blue-900">671,582,789</td>
+                                <td class="p-3 font-bold text-blue-900">6,715.83 億</td>
+                                <td class="p-3 text-blue-600 font-bold">+2.79%</td>
+                                <td class="p-3 font-bold text-blue-900">+194.18%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 1: MARKET DATA -->
+        <div id="tab-market" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Abandonment Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen text-blue-600"></i> 2026 電商裝置棄單率對比 (Baymard Institute)
+                    </h3>
+                    <div class="h-64">
+                        <canvas id="abandonmentChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4 bg-slate-50 p-3 rounded">
+                        <strong>關鍵數據：</strong>平均棄單率高達 70.22%，近 1/5 消費者曾因「結帳流程過長或出錯」棄購。優化結帳設計可使大型電商轉換率提升約 35%。
+                    </p>
+                </div>
+
+                <!-- Coupon Fail Cause Chart -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> 折扣碼失效原因分析 (SimplyCodes 7880萬次實測)
+                    </h3>
+                    <div class="h-64 flex justify-center">
+                        <canvas id="couponChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4 bg-slate-50 p-3 rounded">
+                        <strong>獨特切角：</strong>折扣碼失敗率達 26.2%。35% 為過期未下架、28% 為隱藏限制條件—多數屬商家後台「設定錯誤」，可被自動巡檢攔截。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Real-world Impact Case -->
+            <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-6 rounded-xl shadow-md">
+                <div class="flex items-start gap-4">
+                    <div class="p-3 bg-rose-500/20 border border-rose-500/40 rounded-lg text-rose-400">
+                        <i class="fa-solid fa-fire text-2xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-rose-300">真實痛點案例：DTC 保養品牌疊加 Bug 事故</h4>
+                        <p class="text-sm text-slate-300 mt-1">
+                            一 DTC 保養品牌因後台折扣碼可「違規疊加」的設定 Bug，單一週末遭大量洗單，損失約 <strong class="text-amber-300">6.3 萬美元毛利</strong>。CartRescue AI 的 KOL/折扣碼批量審計能自動阻斷此類漏洞。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 2: COMPETITOR ANALYSIS -->
+        <div id="tab-competitor" class="tab-content hidden space-y-6">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-6 border-b border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800">市場競品定位與 CartRescue 差異化</h3>
+                    <p class="text-sm text-slate-500 mt-1">電商監控市場已被 Noibu 等驗證。CartRescue 聚焦於「事前模擬巡檢」與「華語無工程團隊市場」。</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
+                            <tr>
+                                <th class="p-4">競品名稱</th>
+                                <th class="p-4">定位與運作方式</th>
+                                <th class="p-4">定價模式</th>
+                                <th class="p-4 text-blue-600 bg-blue-50/50">CartRescue AI 核心差異化</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">Noibu</td>
+                                <td class="p-4 text-slate-600">監聽真實用戶 Session 中的 JS 錯誤，事後回溯營收影響 (Guess, Cartier)</td>
+                                <td class="p-4 text-slate-600">企業級高價、報價不透明</td>
+                                <td class="p-4 bg-blue-50/30 text-slate-800 font-medium">
+                                    <strong>事前主動攔截：</strong>Noibu 是事後踩雷才知道；CartRescue 在第一個顧客踩雷前主動模擬發現，且<span class="text-blue-600 font-bold">免植入追蹤碼</span>。
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">Contentsquare / Glassbox</td>
+                                <td class="p-4 text-slate-600">體驗分析、Session Replay、熱圖洞察</td>
+                                <td class="p-4 text-slate-600">企業級高價</td>
+                                <td class="p-4 bg-blue-50/30 text-slate-800 font-medium">
+                                    分析洞察工具而非全天候主動審計；不做折扣碼驗證。
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">Datadog Synthetics</td>
+                                <td class="p-4 text-slate-600">通用合成監控，需工程師編寫瀏覽器測試腳本</td>
+                                <td class="p-4 text-slate-600">約 $12–18 / 千次測試，多流程成本快速堆高</td>
+                                <td class="p-4 bg-blue-50/30 text-slate-800 font-medium">
+                                    依賴 DOM 選擇器，前端改版即壞；CartRescue 採用<span class="text-blue-600 font-bold">自然語言指令 + Stagehand</span>，零腳本維護。
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-bold text-slate-900">SimplyCodes</td>
+                                <td class="p-4 text-slate-600">面向消費者端的測碼社群平台</td>
+                                <td class="p-4 text-slate-600">免費/消費者導向</td>
+                                <td class="p-4 bg-blue-50/30 text-slate-800 font-medium">
+                                    商家端 B2B 批量 KOL 折扣碼合規審計為藍海細分市場 (Wedge)。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Differentiation Banner -->
+            <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-quote-left text-2xl text-blue-500"></i>
+                    <p class="text-sm font-semibold text-blue-900">
+                        定位一句話：「Noibu 告訴你昨晚有多少客人結不了帳；CartRescue 在第一個客人踩雷之前就把漏洞找出來——而且連你發給 KOL 的 300 組折扣碼都逐一驗過。」
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 3: PRICING & ROI CALCULATOR -->
+        <div id="tab-pricing" class="tab-content hidden space-y-6">
+            <!-- Interactive ROI Calculator -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-emerald-600"></i> 互動式損失預防與方案推薦試算器
+                </h3>
+                <p class="text-xs text-slate-500 mb-6">輸入貴站的月營收與折扣碼數量，估算單次結帳故障潛在損失與建議對應方案。</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Inputs -->
+                    <div class="space-y-4 bg-slate-50 p-5 rounded-lg border border-slate-200">
+                        <div>
+                            <label class="text-xs font-bold text-slate-700 block mb-1">月營收 (NT$)</label>
+                            <input type="number" id="calcRevenue" value="3000000" step="500000" class="w-full p-2 border border-slate-300 rounded text-sm font-medium" oninput="calculateROI()">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-700 block mb-1">常態流通折扣碼數量 (組)</label>
+                            <input type="number" id="calcCoupons" value="15" step="5" class="w-full p-2 border border-slate-300 rounded text-sm font-medium" oninput="calculateROI()">
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-slate-700 block mb-1">預期故障持續時間 (小時)</label>
+                            <input type="range" id="calcHours" min="1" max="24" value="6" class="w-full" oninput="calculateROI()">
+                            <span class="text-xs text-slate-500">持續: <span id="calcHoursVal" class="font-bold text-slate-800">6</span> 小時</span>
+                        </div>
+                    </div>
+
+                    <!-- Outputs -->
+                    <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-xl flex flex-col justify-between">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <span class="text-xs text-slate-400 block">單次故障估計營收損失</span>
+                                <span class="text-2xl font-extrabold text-rose-400" id="resLoss">NT$ 25,000</span>
+                                <span class="text-xs text-slate-400 block mt-1">(以此營收規模與時數估算)</span>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-lg border border-slate-700">
+                                <span class="text-xs text-slate-400 block">推薦保護方案</span>
+                                <span class="text-2xl font-extrabold text-emerald-400" id="resPlan">Growth 方案</span>
+                                <span class="text-xs text-slate-400 block mt-1" id="resPlanCost">NT$ 8,990 / 月</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-4 bg-emerald-950/40 border border-emerald-500/30 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-emerald-300 font-medium">一年預估避險回報率 (ROI)</span>
+                                <span class="text-xl font-bold text-emerald-400" id="resROI">278%</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-1">只要一年內攔截到一次 6 小時以上的重大結帳故障，即可收回全年訂閱費用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Starter -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-lg font-bold text-slate-900">Starter 方案</h4>
+                            <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded">入門獨立站</span>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-3xl font-extrabold text-slate-900">NT$ 2,990</span>
+                            <span class="text-xs text-slate-500"> / 月 (未稅)</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 1 個站點巡檢</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 每日 1 次全流程模擬</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 3 組常態折扣碼驗證</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Email / LINE 警報與月報</li>
+                            <li class="flex items-center gap-2 text-slate-400"><i class="fa-solid fa-info-circle"></i> 估算毛利率: ~88–95%</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-2.5 bg-slate-100 text-slate-800 text-xs font-bold rounded-lg hover:bg-slate-200 transition">適合月營收 50-300萬</button>
+                </div>
+
+                <!-- Growth -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-2 border-blue-600 relative flex flex-col justify-between">
+                    <span class="absolute -top-3 right-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">熱門推薦</span>
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-lg font-bold text-slate-900">Growth 方案</h4>
+                            <span class="text-xs bg-blue-50 text-blue-600 px-2.5 py-1 rounded font-medium">成長型品牌</span>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-3xl font-extrabold text-blue-600">NT$ 8,990</span>
+                            <span class="text-xs text-slate-500"> / 月 (未稅)</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 3 個站點巡檢</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 每 6 小時巡檢 (每日 4 次)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 20 組折扣碼自動校驗</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Slack / Discord / LINE 即時通報</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 大檔活動前手動觸發稽核</li>
+                            <li class="flex items-center gap-2 text-slate-400"><i class="fa-solid fa-info-circle"></i> 估算毛利率: ~85–93%</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-2.5 bg-blue-600 text-white text-xs font-bold rounded-lg hover:bg-blue-700 transition">適合月營收 300-3000萬</button>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="text-lg font-bold text-slate-900">Enterprise 方案</h4>
+                            <span class="text-xs bg-purple-50 text-purple-600 px-2.5 py-1 rounded">大型品牌 / 代營運</span>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-3xl font-extrabold text-slate-900">NT$ 26,900+</span>
+                            <span class="text-xs text-slate-500"> / 月起</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 站點不限</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 每小時巡檢 + 活動即時高頻模式</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> KOL 碼批量審計 (300組+)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> 專屬 SLA 與客戶成功經理</li>
+                            <li class="flex items-center gap-2 text-slate-400"><i class="fa-solid fa-info-circle"></i> 估算毛利率: ~70–88%</li>
+                        </ul>
+                    </div>
+                    <button class="w-full py-2.5 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition">適合多站點 / 代營運商</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 4: GTM & SURVEY -->
+        <div id="tab-gtm" class="tab-content hidden space-y-6">
+            <!-- 90 Day Roadmap Timeline -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-flag-checkered text-blue-600"></i> 90 天上市執行計畫與 KPI 階段里程碑
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                    <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-200">
+                        <div class="text-xs font-extrabold text-blue-600 mb-1">STAGE 1: DAY 1–30</div>
+                        <h4 class="font-bold text-slate-900 mb-2">市場驗證與問卷深訪</h4>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                            <li>• 發放問卷 (電商社團、Agency 轉介)</li>
+                            <li>• 完成 10 場電商負責人深度訪談</li>
+                            <li>• 校正定價與痛點優先序</li>
+                        </ul>
+                        <div class="p-2 bg-white rounded text-xs font-semibold text-blue-700 border border-blue-100">
+                            🎯 KPI: 50 份有效問卷 / 10 場訪談
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/50 p-5 rounded-xl border border-amber-200">
+                        <div class="text-xs font-extrabold text-amber-600 mb-1">STAGE 2: DAY 31–60</div>
+                        <h4 class="font-bold text-slate-900 mb-2">Beta 招募與實測</h4>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                            <li>• 發送 30 份免費「結帳健檢報告」作為鉤子</li>
+                            <li>• 上線警報與 LINE/Slack 通報流程</li>
+                            <li>• 校正 LLM Token 成本指標</li>
+                        </ul>
+                        <div class="p-2 bg-white rounded text-xs font-semibold text-amber-700 border border-amber-100">
+                            🎯 KPI: 10 家 Beta 商家 / 每家發現 ≥1 問題
+                        </div>
+                    </div>
+
+                    <div class="bg-emerald-50/50 p-5 rounded-xl border border-emerald-200">
+                        <div class="text-xs font-extrabold text-emerald-600 mb-1">STAGE 3: DAY 61–90</div>
+                        <h4 class="font-bold text-slate-900 mb-2">商業化轉換與通路</h4>
+                        <ul class="text-xs text-slate-600 space-y-2 mb-4">
+                            <li>• Beta 商家轉付費訂閱</li>
+                            <li>• 簽下首家代營運商 (Agency) 白牌通路</li>
+                            <li>• 發布《台灣電商折扣碼失效率實測報告》</li>
+                        </ul>
+                        <div class="p-2 bg-white rounded text-xs font-semibold text-emerald-700 border border-emerald-100">
+                            🎯 KPI: 5 家付費 / MRR NT$30k
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Survey Validation Framework -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-4">客戶驗證問卷與成功門檻 (Hypothesis Validation)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <h4 class="font-bold text-sm text-slate-900 mb-1">假設 H1: 結帳故障痛點真實</h4>
+                        <p class="text-xs text-slate-500 mb-2">驗證故障頻率與發現時間差。</p>
+                        <span class="text-xs bg-slate-100 text-slate-700 font-semibold px-2 py-1 rounded block">
+                            門檻：≥50% 過去一年發生≥1次，且 ≥30% 發現時間超過 6 小時。
+                        </span>
+                    </div>
+
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <h4 class="font-bold text-sm text-slate-900 mb-1">假設 H2: 折扣碼失效是顯性痛點</h4>
+                        <p class="text-xs text-slate-500 mb-2">驗證 KOL 折扣碼管理成本。</p>
+                        <span class="text-xs bg-slate-100 text-slate-700 font-semibold px-2 py-1 rounded block">
+                            門檻：操作 KOL 碼受訪者中 ≥40% 曾發生碼設定錯誤。
+                        </span>
+                    </div>
+
+                    <div class="p-4 border border-slate-200 rounded-lg">
+                        <h4 class="font-bold text-sm text-slate-900 mb-1">假設 H3: 付費意願成立</h4>
+                        <p class="text-xs text-slate-500 mb-2">Van Westendorp 價格敏感度分析。</p>
+                        <span class="text-xs bg-slate-100 text-slate-700 font-semibold px-2 py-1 rounded block">
+                            門檻：價格帶涵蓋 NT$3,000/月，且 ≥20% 願參加 Beta。
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 5: TECHNICAL ARCHITECTURE & RISKS -->
+        <div id="tab-tech" class="tab-content hidden space-y-6">
+            <!-- Audit Lifecycle Steps -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-blue-600"></i> 生產化審計生命週期 (Audit Lifecycle ①–⑦)
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-2 text-center text-xs">
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">① 設定</span>
+                        <span class="mt-2 text-slate-600">商家於 Dashboard 設定站點與折扣碼</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">② 排程派工</span>
+                        <span class="mt-2 text-slate-600">n8n 自派工給 Worker Pool (Supabase 佇列)</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">③ Agent 模擬</span>
+                        <span class="mt-2 text-slate-600">Stagehand 操控 Chrome 完成模擬結帳</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">④ 模型路由</span>
+                        <span class="mt-2 text-slate-600">輕量模型導航 + 旗艦模型判讀 (降本 40-60%)</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">⑤ 證據留存</span>
+                        <span class="mt-2 text-slate-600">截圖與 HTML 快照回寫 Supabase Storage</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-blue-600">⑥ 二次確認</span>
+                        <span class="mt-2 text-slate-600">異常自動重跑確認，計算信心分數</span>
+                    </div>
+                    <div class="p-3 bg-emerald-50 border border-emerald-300 rounded-lg flex flex-col justify-between">
+                        <span class="font-bold text-emerald-700">⑦ 即時警報</span>
+                        <span class="mt-2 text-emerald-800">高信心事件即時推送 LINE / Slack</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Key Design Decisions & Risk Matrix -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-server text-indigo-600"></i> 生產化核心設計決策
+                    </h4>
+                    <ul class="text-xs text-slate-600 space-y-3">
+                        <li class="p-2.5 bg-slate-50 rounded">
+                            <strong class="text-slate-800 block">控制與執行分離:</strong>
+                            n8n 只負責調度，Worker 無狀態可水平擴展。
+                        </li>
+                        <li class="p-2.5 bg-slate-50 rounded">
+                            <strong class="text-slate-800 block">多租戶 Row Level Security (RLS):</strong>
+                            站點與審計日誌按租戶隔離，商業化免重構。
+                        </li>
+                        <li class="p-2.5 bg-slate-50 rounded">
+                            <strong class="text-slate-800 block">模型分流 (LLM Cost Control):</strong>
+                            導航使用輕量模型 (GPT-4o-mini)，僅異常判讀使用旗艦模型。
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Risk Matrix -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-rose-600"></i> 風險與防護機制
+                    </h4>
+                    <div class="space-y-2 text-xs">
+                        <div class="p-2.5 border-l-4 border-amber-500 bg-slate-50">
+                            <span class="font-bold text-slate-800">WAF / Bot 攔截防護:</span>
+                            僅審計簽約商家，將審計 IP 加入白名單並提供測試帳號。
+                        </div>
+                        <div class="p-2.5 border-l-4 border-rose-500 bg-slate-50">
+                            <span class="font-bold text-slate-800">防止測試訂單污染:</span>
+                            模擬推進至付款頁即停止扣款，使用專用測試 SKU / 折扣碼。
+                        </div>
+                        <div class="p-2.5 border-l-4 border-blue-500 bg-slate-50">
+                            <span class="font-bold text-slate-800">降低誤報損害信任:</span>
+                            異常先自動重跑二次確認，僅高信心分數事件觸發即時警報。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Tab Switcher Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+        }
+
+        // ROI Calculator Logic
+        function calculateROI() {
+            const rev = parseFloat(document.getElementById('calcRevenue').value) || 0;
+            const coupons = parseInt(document.getElementById('calcCoupons').value) || 0;
+            const hours = parseInt(document.getElementById('calcHours').value) || 6;
+            document.getElementById('calcHoursVal').innerText = hours;
+
+            const hourlyRev = rev / 720;
+            const estimatedLoss = Math.round(hourlyRev * hours);
+
+            document.getElementById('resLoss').innerText = `NT$ ${estimatedLoss.toLocaleString()}`;
+
+            let planName = "Starter 方案";
+            let planCost = 2990;
+
+            if (rev > 30000000 || coupons > 50) {
+                planName = "Enterprise 方案";
+                planCost = 26900;
+            } else if (rev > 3000000 || coupons > 10) {
+                planName = "Growth 方案";
+                planCost = 8990;
+            }
+
+            document.getElementById('resPlan').innerText = planName;
+            document.getElementById('resPlanCost').innerText = `NT$ ${planCost.toLocaleString()} / 月`;
+
+            const annualCost = planCost * 12;
+            const roi = Math.round((estimatedLoss / annualCost) * 100);
+            document.getElementById('resROI').innerText = `${roi}%`;
+        }
+
+        // Initialize Charts on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            // MOEA Exact Data (106 - 114)
+            const moeaYears = ['106年', '107年', '108年', '109年', '110年', '111年', '112年', '113年', '114年'];
+            // Values in 百萬/億 NTD for display (Original in 千元)
+            const moeaValuesInYi = [2282.89, 2517.14, 3355.66, 4392.84, 5557.05, 6202.55, 6364.43, 6533.30, 6715.83];
+            const moeaYoyRates = [0, 10.26, 33.31, 30.91, 26.50, 11.62, 2.61, 2.65, 2.79];
+
+            // MOEA Chart 1: E-Commerce Sales Trend (106 - 114)
+            const ctxM1 = document.getElementById('moeaTrendChart').getContext('2d');
+            new Chart(ctxM1, {
+                type: 'line',
+                data: {
+                    labels: moeaYears,
+                    datasets: [{
+                        label: '網路銷售額 (億 NT$)',
+                        data: moeaValuesInYi,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { position: 'top' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` 銷售額: ${context.parsed.y.toLocaleString()} 億 NT$`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: false, min: 2000, title: { display: true, text: '億新台幣 (NT$ 100M)' } }
+                    }
+                }
+            });
+
+            // MOEA Chart 2: YoY Growth Rate (%)
+            const ctxM2 = document.getElementById('moeaYoyChart').getContext('2d');
+            new Chart(ctxM2, {
+                type: 'bar',
+                data: {
+                    labels: moeaYears.slice(1),
+                    datasets: [{
+                        label: '年增率 (YoY %)',
+                        data: moeaYoyRates.slice(1),
+                        backgroundColor: ['#10b981', '#10b981', '#10b981', '#10b981', '#10b981', '#3b82f6', '#3b82f6', '#3b82f6'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` 年增率: +${context.parsed.y}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: { 
+                        y: { beginAtZero: true, max: 40, title: { display: true, text: '百分比 (%)' } } 
+                    }
+                }
+            });
+
+            // Baymard Chart
+            const ctx1 = document.getElementById('abandonmentChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['行動端 (Mobile)', '整體平均 (Average)', '桌面端 (Desktop)'],
+                    datasets: [{
+                        label: '棄單率 (%)',
+                        data: [80.02, 70.22, 66.41],
+                        backgroundColor: ['#2563eb', '#3b82f6', '#93c5fd'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { min: 50, max: 100 } }
+                }
+            });
+
+            // Coupon Causes Chart
+            const ctx2 = document.getElementById('couponChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'doughnut',
+                data: {
+                    labels: ['過期未下架 (35%)', '隱藏限制條件 (28%)', '新客限定設定 (23%)', '其他設定錯誤 (14%)'],
+                    datasets: [{
+                        data: [35, 28, 23, 14],
+                        backgroundColor: ['#f43f5e', '#fb923c', '#fbbf24', '#cbd5e1']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Initial ROI calculation
+            calculateROI();
+        });
+    </script>
+</body>
+</html>
