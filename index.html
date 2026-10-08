@@ -633,13 +633,49 @@
 
     <!-- JavaScript for Interactivity -->
     <script>
-        // Tab Switcher Logic
+        // Tab Switcher Logic with URL Anchor Support
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
             
             document.getElementById(tabId).classList.remove('hidden');
             event.currentTarget.classList.add('active');
+            
+            // Update URL hash without scrolling
+            const hashMap = {
+                'tab-moea': '%E7%B6%93%E6%BF%9F%E9%83%A8%E7%B6%B2%E8%B7%AF%E9%8A%B7%E5%94%A1%E9%A1%8D',
+                'tab-market': '%E5%85%A8%E7%90%83%E7%97%9B%E9%BB%9E%E8%88%87%E6%95%B8%E6%93%9A%E9%87%8F%E5%8C%96',
+                'tab-competitor': '%E7%AB%B6%E5%93%81%E5%B7%AE%E7%95%B0%E5%8C%96%E5%AE%9A%E4%BD%8D',
+                'tab-pricing': '%E5%95%86%E6%A5%AD%E6%A8%A1%E5%BC%8F%E8%88%87ROI%E8%A9%A6%E7%AE%97',
+                'tab-gtm': 'GTM%E7%AD%96%E7%95%A5%E8%88%87%E9%A9%97%E8%AD%89%E5%95%8F%E5%8D%B7',
+                'tab-tech': '%E7%94%9F%E7%94%A2%E5%8C%96%E6%9E%B6%E6%A7%8B%E8%88%87%E9%A2%A8%E9%9A%AA'
+            };
+            if (hashMap[tabId]) {
+                history.pushState(null, null, '#' + hashMap[tabId]);
+            }
+        }
+
+        // Auto-switch tab based on URL hash on page load
+        function handleHashTab() {
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            const tabMap = {
+                '經濟部網路銷售額': 'tab-moea',
+                '全球痛點與數據量化': 'tab-market',
+                '競品差異化定位': 'tab-competitor',
+                '商業模式與ROI試算': 'tab-pricing',
+                'GTM策略與驗證問卷': 'tab-gtm',
+                '生產化架構與風險': 'tab-tech'
+            };
+            const targetTab = tabMap[hash];
+            if (targetTab) {
+                const btn = document.querySelector(`button[onclick*="'${targetTab}'"]`);
+                if (btn) {
+                    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+                    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+                    document.getElementById(targetTab).classList.remove('hidden');
+                    btn.classList.add('active');
+                }
+            }
         }
 
         // ROI Calculator Logic
@@ -790,6 +826,9 @@
 
             // Initial ROI calculation
             calculateROI();
+            
+            // Handle URL hash for tab switching on page load
+            handleHashTab();
         });
     </script>
 </body>
